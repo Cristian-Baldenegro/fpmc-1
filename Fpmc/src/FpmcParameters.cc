@@ -25,7 +25,8 @@ namespace fpmc
       { "aaanom", "0" }, { "aaexotic", "0" },
       { "aam", "0.0" }, { "aaq", "0.0" }, { "aan", "0.0" },
       { "aaf0", "0.0" }, { "aaf0z", "0.0" }, { "aaf0w", "0.0" }, { "aaf0zg", "0.0" }, { "aaw", "0.0" }, { "aaa2", "0.0" },
-      { "dlambda", "0.0" }, { "anomcutoff", "-1.0" },
+      { "dlambda", "0.0" }, { "anomcutoff", "-1.0" }, {"xi1ttbar", "0.0"}, {"xi2ttbar", "0.0"}, {"xi3ttbar", "0.0"}, 
+      {"xi4ttbar", "0.0"}, {"xi5ttbar", "0.0"}, {"xi6ttbar", "0.0"}, 
       // CHIDe parameters
       { "chidex", "-1.0" }, { "chidexp", "-1.0" }, { "chides2", "-1.0" }, { "chidegapmin", "0.0" }, { "chidegapmax", "0.0" }, { "chide_iglu", "-1" }, { "chidepath", "External/CHIDe/Data/" },
       { "xi1min", "-1.0" }, { "xi1max", "-1.0" }, { "xi2min", "-1.0" }, { "xi2max", "-1.0" },

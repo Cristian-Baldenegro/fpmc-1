@@ -7,7 +7,7 @@
 //--------Coding of the exclusive aa->aa process----------//
 //--formulas from G. von Gersdorff (gersdorff@gmail.com)--// 
 //--formulas from S. Fichet  sylvain.fichet@gmail.com--)--// 
-//modification of the comphep external module used for aaww/aazz//
+//modification of the comphep external module used for aaww/aazz/aattbar //
 
 #ifdef __cplusplus /* If this is a C++ compiler, use C linkage */
 extern "C" {
@@ -27,6 +27,7 @@ extern "C" {
   void resonances2_sqme_aaaa_c_(double* _amp2, double* _s, double* _t, int* _exclude_loops_SM, int* _exclude_loops_EX, double* _m, double* _c, double* _w_c, double* _aa); //Spin2 neutral resonances
   void eft_sqme_aaaa_c_(double* _amp2, double* _s, double* _t, int* _exclude_loops_SM, double* _z1, double* _z2, double* _cutoff); //EFT limit
   void eft_sqme_aaaz_c_( double*, double*, double*, int*, double*, double*, double* );
+  // void eft_sqme_aattbar_c_(double* _amp2,double* _p,)
 
 #ifdef __cplusplus
 }
