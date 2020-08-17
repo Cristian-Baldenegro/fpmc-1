@@ -56,6 +56,12 @@ c---FFC default initialiszation
       UACZ        =    0.
       UA1A        =    0.
       UA2A        =    0.
+      XI1TTBAR    =    0.
+      XI2TTBAR    =    0.
+      XI3TTBAR    =    0.
+      XI4TTBAR    =    0.
+      XI5TTBAR    =    0.
+      XI6TTBAR    =    0.
       UANOMCUTOFF =    -1.     ! if < 0 turns formfactor off
       UAAEXOTIC   =    0       ! SM Excl AAAA
       UAAM        =    0.
@@ -136,6 +142,12 @@ c---FFC default initialiszation
         call FFKEY('ACZ', UACZ,1,'real')
         call FFKEY('A1A', UA1A,1,'real')
         call FFKEY('A2A', UA2A,1,'real')
+        call FFKEY('XI1TTBAR', UXI1TTBAR,1,'real')
+        call FFKEY('XI2TTBAR', UXI1TTBAR,1,'real')
+        call FFKEY('XI3TTBAR', UXI1TTBAR,1,'real')
+        call FFKEY('XI4TTBAR', UXI1TTBAR,1,'real')
+        call FFKEY('XI5TTBAR', UXI1TTBAR,1,'real')
+        call FFKEY('XI6TTBAR', UXI1TTBAR,1,'real')
         call FFKEY('ANOMCUTOFF', UANOMCUTOFF,1,'real')
         call FFKEY('AAEXOTIC', UAAEXOTIC,1,'integer')
         call FFKEY('AAM', UAAM,1,'real')

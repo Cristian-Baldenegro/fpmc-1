@@ -580,8 +580,19 @@ C--M.S exclusive diphoton production
          ENDIF
 
          IF(AAEXOTIC.EQ.0)THEN
+           IF(IPROC.EQ.16075)THEN
+            PRINT*, ' - - - - - - - - - FPMC - - - - - - - - - '
+            PRINT *, ' '
+            PRINT *, 'G.von Gersdorff and S.Fichet ME used for AA->ttbar '
+            PRINT *, 'with anomalous coupling'
+            PRINT *, 'Anomalous coupling parameters set to:'
+            PRINT *, '   XI1TTBAR  = ', XI1TTBAR
+            PRINT *, '   XI2TTBAR  = ', XI2TTBAR
+            PRINT *, '   XI3TTBAR  = ', XI3TTBAR
+            PRINT *, '   XI4TTBAR  = ', XI4TTBAR
+            PRINT *, '   XI5TTBAR  = ', XI5TTBAR
+            PRINT *, '   XI6TTBAR  = ', XI6TTBAR
          ELSEIF(AAEXOTIC.EQ.1)THEN
-            PRINT *, 'EXOTICS FOR EXCL AAAA'
            IF( IPROC.LT.16063.AND.IPROC.GT.16065) THEN
             PRINT*, ' '
             PRINT*, ' FPMC - Exotic AAAA coupling available '
@@ -3626,6 +3637,10 @@ c ... M.S.      : HQ=60,61,62,63,64,65 SM AA + AAANOM=3 def
             HQ=13 !AA->GluGlu, C Baldenegro
             AAANOM=3 !Enters M.S. SQME calls
           ENDIF
+          IF (HQ.EQ.75) THEN
+            HQ=6 !Top quark, A. Bellora
+            AAANOM=3 !Enters M.S. SQME calls
+          ENDIF
           IF (HQ.EQ.127) HQ=198
           IF (HQ.GE.21.AND.HQ.LE.26) THEN
             HQ=HQ+400-20
@@ -3896,6 +3911,12 @@ c ... According to the convention of O.K. for ZZ final states
               IF(HQ.EQ.59.AND.IPROC.EQ.16069) THEN
               call resonances0even_sqme_az_c(AMP2, S, T, 1, 0,
      $        AAM, AAF0, AAF0ZG, AAW, AAA2)
+              ENDIF
+c ... A.B. Calling anomalous ttbar production AA->ttbar 08-2020            
+              IF(HQ.EQ.6.AND.IPROC.EQ.16075) THEN
+              call eft_sqme_aattbar_c(AMP2,PHEP(*,1),PHEP(*,2),
+     $        PHEP(*,3),PHEP(*,4),XI1TTBAR,XI2TTBAR,XI3TTBAR,
+     $        XI4TTBAR,XI5TTBAR,XI6TTBAR)
               ENDIF
 c ... C.B. Calling GluGlu production (Spin0even resonance) AA->Dijet 05-2016
               IF(HQ.EQ.13.AND.IPROC.EQ.16070) THEN

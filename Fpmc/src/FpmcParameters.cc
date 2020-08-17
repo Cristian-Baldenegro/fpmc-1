@@ -208,6 +208,12 @@ namespace fpmc
     if ( has( "acz" ) ) aaanomal.ACZ = getFloat( "acz" );
     if ( has( "a1a" ) ) aaanomal.A1A = getFloat( "a1a" );
     if ( has( "a2a" ) ) aaanomal.A2A = getFloat( "a2a" );
+    if ( has( "xi1ttbar" ) ) aaanomal.XI1TTBAR = getFloat( "xi1ttbar" );
+    if ( has( "xi2ttbar" ) ) aaanomal.XI2TTBAR = getFloat( "xi2ttbar" );
+    if ( has( "xi3ttbar" ) ) aaanomal.XI3TTBAR = getFloat( "xi3ttbar" );
+    if ( has( "xi4ttbar" ) ) aaanomal.XI4TTBAR = getFloat( "xi4ttbar" );
+    if ( has( "xi5ttbar" ) ) aaanomal.XI5TTBAR = getFloat( "xi5ttbar" );
+    if ( has( "xi6ttbar" ) ) aaanomal.XI6TTBAR = getFloat( "xi6ttbar" );
     if ( has( "anomcutoff" ) ) aaanomal.ANOMCUTOFF = getFloat( "anomcutoff" );
   }
 
