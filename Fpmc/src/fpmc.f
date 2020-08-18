@@ -583,7 +583,8 @@ C--M.S exclusive diphoton production
            IF(IPROC.EQ.16075)THEN
             PRINT*, ' - - - - - - - - - FPMC - - - - - - - - - '
             PRINT *, ' '
-            PRINT *, 'G.von Gersdorff and S.Fichet ME used for AA->ttbar '
+            PRINT *, 'G.von Gersdorff and S.Fichet ME used for 
+     &      AA->ttbar '
             PRINT *, 'with anomalous coupling'
             PRINT *, 'Anomalous coupling parameters set to:'
             PRINT *, '   XI1TTBAR  = ', XI1TTBAR
@@ -592,6 +593,7 @@ C--M.S exclusive diphoton production
             PRINT *, '   XI4TTBAR  = ', XI4TTBAR
             PRINT *, '   XI5TTBAR  = ', XI5TTBAR
             PRINT *, '   XI6TTBAR  = ', XI6TTBAR
+           ENDIF
          ELSEIF(AAEXOTIC.EQ.1)THEN
            IF( IPROC.LT.16063.AND.IPROC.GT.16065) THEN
             PRINT*, ' '
@@ -3914,8 +3916,12 @@ c ... According to the convention of O.K. for ZZ final states
               ENDIF
 c ... A.B. Calling anomalous ttbar production AA->ttbar 08-2020            
               IF(HQ.EQ.6.AND.IPROC.EQ.16075) THEN
-              call eft_sqme_aattbar_c(AMP2,PHEP(*,1),PHEP(*,2),
-     $        PHEP(*,3),PHEP(*,4),XI1TTBAR,XI2TTBAR,XI3TTBAR,
+              call eft_sqme_aattbar_c(AMP2,
+     $        PHEP(1,1),PHEP(2,1),PHEP(3,1),PHEP(4,1),
+     $        PHEP(1,2),PHEP(2,2),PHEP(3,2),PHEP(4,2),
+     $        PHEP(1,3),PHEP(2,3),PHEP(3,3),PHEP(4,3),
+     $        PHEP(1,4),PHEP(2,4),PHEP(3,4),PHEP(4,4),
+     $        XI1TTBAR,XI2TTBAR,XI3TTBAR,
      $        XI4TTBAR,XI5TTBAR,XI6TTBAR)
               ENDIF
 c ... C.B. Calling GluGlu production (Spin0even resonance) AA->Dijet 05-2016

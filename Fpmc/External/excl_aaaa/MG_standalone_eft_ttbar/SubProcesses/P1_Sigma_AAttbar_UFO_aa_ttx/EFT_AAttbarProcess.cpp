@@ -6,7 +6,6 @@
 //==========================================================================
 
 #include "EFT_AAttbarProcess.h"
-#include "HelAmps_AAttbar_UFO.h"
 
 using namespace MG5_AAttbar_UFO; 
 

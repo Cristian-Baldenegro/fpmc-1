@@ -27,7 +27,12 @@ extern "C" {
   void resonances2_sqme_aaaa_c_(double* _amp2, double* _s, double* _t, int* _exclude_loops_SM, int* _exclude_loops_EX, double* _m, double* _c, double* _w_c, double* _aa); //Spin2 neutral resonances
   void eft_sqme_aaaa_c_(double* _amp2, double* _s, double* _t, int* _exclude_loops_SM, double* _z1, double* _z2, double* _cutoff); //EFT limit
   void eft_sqme_aaaz_c_( double*, double*, double*, int*, double*, double*, double* );
-  void eft_sqme_aattbar_c_(double* _amp2,double* _p1,double* _p2,double* _p3,double* _p4,double* _xi1,double* _xi2,double* _xi3,double* _xi4,double* _xi5,double* _xi6)
+  void eft_sqme_aattbar_c_(double* _amp2,
+    double* _p0_1,double* _px_1,double* _py_1,double* _pz_1,
+    double* _p0_2,double* _px_2,double* _py_2,double* _pz_2,
+    double* _p0_3,double* _px_3,double* _py_3,double* _pz_3,
+    double* _p0_4,double* _px_4,double* _py_4,double* _pz_4,
+    double* _xi1,double* _xi2,double* _xi3,double* _xi4,double* _xi5,double* _xi6); //Anomalous ttbar production
 
 #ifdef __cplusplus
 }
@@ -170,8 +175,22 @@ void eft_sqme_aaaz_c_( double* _amp2, double* _s, double* _t, int* _exclude_loop
 // Anomalous aattbar in the EFT limit parametrized by xi1-xi6
 // including interferences with SM 
 //////////////////////////////////////////////////////////////////// 
-namespace eft_aattbar { extern double sqme(double* _p1,double* _p2,double* _p3,double* _p4,double* _xi1,double* _xi2,double* _xi3,double* _xi4,double* _xi5,double* _xi6); }
-void eft_sqme_aattbar_c_(double* _amp2,double* _p1,double* _p2,double* _p3,double* _p4,double* _xi1,double* _xi2,double* _xi3,double* _xi4,double* _xi5,double* _xi6) {
-  *_amp2 = eft_aaaa::sqme(_p1, _p2, _p3, _p4, _xi1, _xi2, _xi3, _xi4, _xi5, _xi6);
+namespace eft_aattbar { extern double sqme(
+    double* _p0_1,double* _px_1,double* _py_1,double* _pz_1,
+    double* _p0_2,double* _px_2,double* _py_2,double* _pz_2,
+    double* _p0_3,double* _px_3,double* _py_3,double* _pz_3,
+    double* _p0_4,double* _px_4,double* _py_4,double* _pz_4,
+    double* _xi1,double* _xi2,double* _xi3,double* _xi4,double* _xi5,double* _xi6); }
+void eft_sqme_aattbar_c_(double* _amp2,
+    double* _p0_1,double* _px_1,double* _py_1,double* _pz_1,
+    double* _p0_2,double* _px_2,double* _py_2,double* _pz_2,
+    double* _p0_3,double* _px_3,double* _py_3,double* _pz_3,
+    double* _p0_4,double* _px_4,double* _py_4,double* _pz_4,
+    double* _xi1,double* _xi2,double* _xi3,double* _xi4,double* _xi5,double* _xi6) {
+  *_amp2 = eft_aattbar::sqme(_p0_1,_px_1,_py_1,_pz_1,
+                             _p0_2,_px_2,_py_2,_pz_2,
+                             _p0_3,_px_3,_py_3,_pz_3,
+                             _p0_4,_px_4,_py_4,_pz_4, 
+                             _xi1, _xi2, _xi3, _xi4, _xi5, _xi6);
 }
 #define eft_sqme_aattbar_c__ eft_sqme_aattbar_c_ //wrapper for g77

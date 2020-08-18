@@ -11,7 +11,8 @@
 #include <complex> 
 #include <vector> 
 
-#include "Parameters_AAttbar_UFO.h"
+#include "../../src/Parameters_AAttbar_UFO.h"
+#include "../../src/HelAmps_AAttbar_UFO.h"
 
 using namespace std; 
 
