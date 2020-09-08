@@ -6,6 +6,7 @@
 //==========================================================================
 
 #include "EFT_AAttbarProcess.h"
+#include <iostream>
 
 using namespace MG5_AAttbar_UFO; 
 
@@ -16,15 +17,18 @@ using namespace MG5_AAttbar_UFO;
 //--------------------------------------------------------------------------
 // Initialize process.
 
-void EFT_AAttbarProcess::initProc(string param_card_name, double* couplings) 
+void EFT_AAttbarProcess::initProc(string param_card_name, double* couplings, double m_top) 
 {
+
   // Instantiate the model class and set parameters that stay fixed during run
   pars = Parameters_AAttbar_UFO::getInstance(); 
   SLHAReader slha(param_card_name); 
-  pars->setIndependentParameters(slha, couplings); 
+
+  pars->setIndependentParameters(slha, couplings, m_top); 
   pars->setIndependentCouplings(); 
-  pars->printIndependentParameters(); 
-  pars->printIndependentCouplings(); 
+  // pars->printIndependentParameters(); 
+  // pars->printIndependentCouplings(); 
+  
   // Set external particle masses for this matrix element
   mME.push_back(pars->ZERO); 
   mME.push_back(pars->ZERO); 

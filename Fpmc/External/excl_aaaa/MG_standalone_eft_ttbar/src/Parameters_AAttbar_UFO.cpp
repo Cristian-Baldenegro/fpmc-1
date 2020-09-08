@@ -21,7 +21,7 @@ Parameters_AAttbar_UFO * Parameters_AAttbar_UFO::getInstance()
   return instance; 
 }
 
-void Parameters_AAttbar_UFO::setIndependentParameters(SLHAReader& slha, double* couplings)
+void Parameters_AAttbar_UFO::setIndependentParameters(SLHAReader& slha, double* couplings, double m_top)
 {
   // Define "zero"
   zero = 0; 

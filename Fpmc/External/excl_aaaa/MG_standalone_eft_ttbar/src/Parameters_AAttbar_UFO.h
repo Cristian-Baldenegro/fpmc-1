@@ -52,7 +52,7 @@ class Parameters_AAttbar_UFO
 
 
     // Set parameters that are unchanged during the run
-    void setIndependentParameters(SLHAReader& slha, double* couplings); 
+    void setIndependentParameters(SLHAReader& slha, double* couplings, double m_top); 
     // Set couplings that are unchanged during the run
     void setIndependentCouplings(); 
     // Set parameters that are changed event by event

@@ -95,4 +95,4 @@ install(DIRECTORY Fpmc DESTINATION include FILES_MATCHING PATTERN "*.inc")
 
 file(COPY ${PROJECT_SOURCE_DIR}/Datacards/ DESTINATION Datacards/)
 file(COPY ${PROJECT_SOURCE_DIR}/Fpmc/External/CHIDe/Data/ DESTINATION External/CHIDe/Data/)
-
+file(COPY ${PROJECT_SOURCE_DIR}/Fpmc/External/excl_aaaa/MG_standalone_eft_ttbar/Cards DESTINATION External/excl_aaaa/MG_standalone_eft_ttbar/)

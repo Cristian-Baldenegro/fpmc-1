@@ -3642,8 +3642,6 @@ c ... M.S.      : HQ=60,61,62,63,64,65 SM AA + AAANOM=3 def
           IF (HQ.EQ.75) THEN
             HQ=6 !Top quark, A. Bellora
             AAANOM=3 !Enters M.S. SQME calls
-            ID3=6
-            ID4=6
           ENDIF
           IF (HQ.EQ.127) HQ=198
           IF (HQ.GE.21.AND.HQ.LE.26) THEN
@@ -3919,72 +3917,9 @@ c ... According to the convention of O.K. for ZZ final states
               ENDIF
 c ... A.B. Calling anomalous ttbar production AA->ttbar 08-2020            
               IF(HQ.EQ.6.AND.IPROC.EQ.16075) THEN
-              print *, 'CALLING HWETWO FOR AATTBAR'
-              print *, 'ID3 =',ID3,', ID4 =',ID4
-C ...         A.B. Need to simulate the whole kinematics for sqme
-              HCS=0.
-              XX(1)=1.
-              XX(2)=1.
-C             A.B. As done below, but only for ttbar  
-              DO 20 ID3=6,6
-                IF (RS.GT.2*RMASS(ID3)) THEN
-                  Q=ICHRG(ID3)
-                  Q=Q/THREE
-                  ID4=ID3+6
-                  print *, 'ID3 =',ID3,', ID4 =',ID4
-                  HCS=HCS+Q**4
-                  IF (GENEV.AND.HCS.GT.RCS) THEN
-                    CALL HWHQCP(ID3,ID4,1243,61)
-                  ENDIF
-                ENDIF
- 20           CONTINUE
-              CALL HWHQCP(ID3,ID4,1243,61)
-
-              IDN(1)=59
-              IDN(2)=59
-              IDCMF=15
-              ID3=6
-              ID4=12
-              print *, 'ID3 =',ID3,', ID4 =',ID4
-              CALL HWETWO
-
-              print *, 'CALLING SQME AATTBAR'
-              print *, 'PDGID Px Py Pz E M'
-              print *,IDHEP(1),',', PHEP(1,1),',',PHEP(2,1),',',
-     $          PHEP(3,1),',',PHEP(4,1),',',PHEP(5,1)
-              print *,IDHEP(2),',', PHEP(1,2),',',PHEP(2,2),',',
-     $          PHEP(3,2),',',PHEP(4,2),',',PHEP(5,2)
-              print *,IDHEP(3),',', PHEP(1,3),',',PHEP(2,3),',',
-     $          PHEP(3,3),',',PHEP(4,3),',',PHEP(5,3)
-              print *,IDHEP(4),',', PHEP(1,4),',',PHEP(2,4),',',
-     $          PHEP(3,4),',',PHEP(4,4),',',PHEP(5,4)
-              print *,IDHEP(5),',', PHEP(1,5),',',PHEP(2,5),',',
-     $          PHEP(3,5),',',PHEP(4,5),',',PHEP(5,5)
-              print *,IDHEP(6),',', PHEP(1,6),',',PHEP(2,6),',',
-     $          PHEP(3,6),',',PHEP(4,6),',',PHEP(5,6)
-              print *,IDHEP(7),',', PHEP(1,7),',',PHEP(2,7),',',
-     $          PHEP(3,7),',',PHEP(4,7),',',PHEP(5,7)
-              print *,IDHEP(8),',', PHEP(1,8),',',PHEP(2,8),',',
-     $          PHEP(3,8),',',PHEP(4,8),',',PHEP(5,8)
-              print *,IDHEP(9),',', PHEP(1,9),',',PHEP(2,9),',',
-     $          PHEP(3,9),',',PHEP(4,9),',',PHEP(5,9)
-              print *,IDHEP(10),',', PHEP(1,10),',',PHEP(2,10),',',
-     $          PHEP(3,10),',',PHEP(4,10),',',PHEP(5,10)
-              print *,IDHEP(11),',', PHEP(1,11),',',PHEP(2,11),',',
-     $          PHEP(3,11),',',PHEP(4,11),',',PHEP(5,11)
-              print *,IDHEP(12),',', PHEP(1,12),',',PHEP(2,12),',',
-     $          PHEP(3,12),',',PHEP(4,12),',',PHEP(5,12)
-              print *,IDHEP(13),',', PHEP(1,13),',',PHEP(2,13),',',
-     $          PHEP(3,13),',',PHEP(4,13),',',PHEP(5,13)
-              AMP2 = 1
-c ...         A.B. Compute the right amplitude and fix the normalization 
-C               CALL eft_sqme_aattbar_c(AMP2,
-C      $        PHEP(1,1),PHEP(2,1),PHEP(3,1),PHEP(4,1),
-C      $        PHEP(1,2),PHEP(2,2),PHEP(3,2),PHEP(4,2),
-C      $        PHEP(1,3),PHEP(2,3),PHEP(3,3),PHEP(4,3),
-C      $        PHEP(1,4),PHEP(2,4),PHEP(3,4),PHEP(4,4),
-C      $        XI1TTBAR,XI2TTBAR,XI3TTBAR,
-C      $        XI4TTBAR,XI5TTBAR,XI6TTBAR)
+              CALL eft_sqme_aattbar_c(AMP2, S, T,
+     $        XI1TTBAR,XI2TTBAR,XI3TTBAR,
+     $        XI4TTBAR,XI5TTBAR,XI6TTBAR, RMASS(6))
               ENDIF
 c ... C.B. Calling GluGlu production (Spin0even resonance) AA->Dijet 05-2016
               IF(HQ.EQ.13.AND.IPROC.EQ.16070) THEN
@@ -4062,7 +3997,6 @@ c C.B. AZ
             IF (GENEV.AND.HCS.GT.RCS) CALL HWHQCP(ID3,ID4,1243,61,*99)
           ENDIF
  10     CONTINUE
-        PRINT *, 'I GOT HERE, Q=',Q
 
 C ... For 'QCD' no EM charge, it is set to ONE
       ELSE
@@ -4107,7 +4041,7 @@ c---End modif by Tibor Kucs 08/14/2003
       ELSE
         CALL HWETWO
       ENDIF
- 999  CONTINUE
+      CONTINUE
       END
 
 CDECK  ID>, HWETWO.

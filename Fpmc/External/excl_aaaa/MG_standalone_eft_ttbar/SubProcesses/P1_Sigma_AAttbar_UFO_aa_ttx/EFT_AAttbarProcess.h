@@ -29,7 +29,7 @@ class EFT_AAttbarProcess
     EFT_AAttbarProcess() {}
 
     // Initialize process.
-    virtual void initProc(string param_card_name, double* couplings); 
+    virtual void initProc(string param_card_name, double* couplings, double m_top); 
 
     // Calculate flavour-independent parts of cross section.
     virtual void sigmaKin(); 

@@ -144,8 +144,6 @@ C-----------------------------------------------------------------------
       INTEGER NUP,IDRPUP
       DOUBLE PRECISION VTIM,ASPI,ALFAS,HWUALF,SCALE
       LOGICAL SAVEPART
-      LOGICAL SAVE1
-      LOGICAL SAVE2
 
 
       EXTERNAL HWUALF
@@ -184,9 +182,10 @@ C
         IF(IDHEP(I).EQ.2212.AND.JMOHEP(1,I).EQ.2) IPR2=I
 
         SAVEPART = .FALSE.
-        SAVE1 = ISTHEP(I).EQ.1.OR.ISTHEP(I).EQ.113.OR.ISTHEP(I).EQ.114
-        SAVE2 = ISTHEP(I).EQ.123.OR.ISTHEP(I).EQ.124
-        IF(SAVE1.OR.SAVE2) THEN
+        
+        
+        IF(ISTHEP(I).EQ.1.OR.ISTHEP(I).EQ.113.OR.ISTHEP(I).EQ.114 .OR.
+     &    ISTHEP(I).EQ.123.OR.ISTHEP(I).EQ.124 ) THEN
 C         IF(.TRUE.) THEN
           SAVEPART = .TRUE.
 C           ISTHEP(I) = 1

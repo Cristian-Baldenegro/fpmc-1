@@ -27,9 +27,11 @@ void SLHAReader::read_slha_file(std::string file_name)
 {
   std::ifstream param_card;
   param_card.open(file_name.c_str(), std::ifstream::in);
-  if(!param_card.good())
+  if(!param_card.good()){
+    std::cout << "I'm in error here!" << std::endl;
     throw "Error while opening param card";
-  std::cout << "Opened slha file " << file_name << " for reading" << std::endl;
+  }
+  // std::cout << "Opened slha file " << file_name << " for reading" << std::endl;
   char buf[200];
   std::string line;
   std::string block("");
