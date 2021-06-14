@@ -165,11 +165,13 @@ C
         IF(IDHEP(I).EQ.2212.AND.JMOHEP(1,I).EQ.1) IPR1=I
         IF(IDHEP(I).EQ.2212.AND.JMOHEP(1,I).EQ.2) IPR2=I
 
-        SAVEPART = .FALSE.
+        SAVEPART = .TRUE.
         IF(ISTHEP(I).EQ.1.OR.ISTHEP(I).EQ.113.OR.ISTHEP(I).EQ.114) THEN
           SAVEPART = .TRUE.
         ENDIF
-
+        IF(ISTHEP(I).EQ.123.OR.ISTHEP(I).EQ.124 ) THEN
+          SAVEPART = .TRUE.
+        ENDIF
         IF(SAVEPART) THEN
           NUP = NUP + 1
         ENDIF
@@ -181,23 +183,24 @@ C
         IF(IDHEP(I).EQ.2212.AND.JMOHEP(1,I).EQ.1) IPR1=I
         IF(IDHEP(I).EQ.2212.AND.JMOHEP(1,I).EQ.2) IPR2=I
 
-        SAVEPART = .FALSE.
-        
-        
-        IF(ISTHEP(I).EQ.1.OR.ISTHEP(I).EQ.113.OR.ISTHEP(I).EQ.114 .OR.
-     &    ISTHEP(I).EQ.123.OR.ISTHEP(I).EQ.124 ) THEN
-C         IF(.TRUE.) THEN
+        SAVEPART = .TRUE.
+        IF(ISTHEP(I).EQ.1.OR.ISTHEP(I).EQ.113.OR.ISTHEP(I).EQ.114) THEN
           SAVEPART = .TRUE.
 C           ISTHEP(I) = 1
+        ENDIF
+        IF(ISTHEP(I).EQ.123.OR.ISTHEP(I).EQ.124 ) THEN
+          SAVEPART = .TRUE.
         ENDIF
 
         IF(SAVEPART) THEN
           WRITE(45,190) IDHEP(I),ISTHEP(I),
-     &      0,0,ICOL1,ICOL2,
+     &      JMOHEP(1,I),JMOHEP(2,I),ICOL1,ICOL2,
      &      (PHEP(J,I),J=1,5),VTIM,ASPI
         ENDIF
 
   511 CONTINUE
+
+
 
       WRITE(45,50)
 
